@@ -1,5 +1,5 @@
 body {
-  background-color: cadetblue;
+  background-color: black;
 }
 
 .container {
@@ -11,4 +11,23 @@ body {
 #selected_data {
   padding: 20px;
   top: 100px;
+  left: 500px;
+}
+#selected_data img {
+  position: relative;
+  left: 300px;
+}
+#selected_data {
+  font-size: larger;
+  font-weight: 300;
+  color: aliceblue;
+}
+#title {
+  text-align: center;
+  color: blanchedalmond;
+}
+#gif img {
+}
+#search-box-btn {
+  text-align: center;
 }
