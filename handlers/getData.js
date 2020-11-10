@@ -13,7 +13,11 @@ function autoComplete(input, data) {
   );
   let newArr = [];
   for (let i = 0; i < result.length; i++) {
-    newArr.push(result[i]["title"]);
+    newArr.push({
+      title: result[i]["title"],
+      img: result[i]["image"],
+      type: result[i]["type"],
+    });
   }
   return newArr;
 }
