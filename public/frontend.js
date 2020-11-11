@@ -4,6 +4,10 @@ const dataList = document.querySelector("#dataList");
 const container = document.querySelector(".container");
 const selectedData = document.querySelector("#selected_data");
 const giff = document.querySelector("#gif");
+
+const local = `http://localhost:3000`;
+const online = `https://Autocomplete-om.herokuapp.com`;
+
 let selectedResturant;
 input.addEventListener("keyup", () => {
   fetch(`http://localhost:3000/getdata/?name=${input.value}`)
