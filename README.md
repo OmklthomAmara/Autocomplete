@@ -3,7 +3,7 @@
 <br />
 
 <p align = "center">
-  <img src= './reimg' width="100%" height="500" />
+  <img src= 'https://github.com/OmklthomAmara/Autocomplete/blob/main/reimg.jpg?raw=true' width="80%" height="500" />
 </p>
   <h2 align="center"><a href='https://omklthomamara.github.io/Autocomplete'/>Try our NEW APP</h2>
 
