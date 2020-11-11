@@ -1,4 +1,4 @@
-const data = require("../restaurants.json");
+const data = require("../Data/restaurants.json");
 
 const getDataFunction = (req, res) => {
   const search = new URLSearchParams(req.url.split("?")[1]);

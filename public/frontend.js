@@ -22,28 +22,28 @@ function addListToDom(listArr) {
     dataList.appendChild(option);
   });
 }
-const addSelectedData = (selectedResturant) => {
-  const type = selectedResturant["type"];
-  console.log(selectedResturant);
-  console.log(type);
-  selectedData.innerHTML = `<h2>FOOD MENU:</h2>`;
+const addSelectedData = (type) => {
+  selectedData.innerHTML = `<span style='text-decoration: underline;'><h2>Food Menu:</h2></span>`;
   type.forEach((e) => {
-    selectedData.innerHTML += ` <br> *${e} <br>`;
+    selectedData.innerHTML += ` <br> *  ${e} <br>`;
   });
-  //selectedData.innerHTML = `<img src='${img}' width='400px' height='150px' />`;
 };
 
 submit.addEventListener("click", () => {
-  addSelectedData(selectedResturant);
+  //fetching data from random gif API
   fetch(`http://localhost:3000/api/?name=${input.value}`)
     .then((res) => res.json())
     .then((res) => {
       // giff.innerHTML = `<img src='${res.data.image_original_url}' width='300px' height='300px' />`;
     });
+
+  //fetching data from server 2
   fetch(`http://localhost:3000/server2/?name=${input.value}`)
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      selectedData.innerHTML += `<img src='${res[0].image}' width='300px' height='300px' />`;
+      addSelectedData(res[0].type);
+      selectedData.innerHTML += `<img src='${res[0].image}'/>`;
     });
+  input.value = "";
 });

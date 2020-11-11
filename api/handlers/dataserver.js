@@ -1,6 +1,5 @@
-const data = require("../../restaurants.json");
-// `http://localhost:3000/server2/?name=${input.value}`
-// `http://localhost:4000/api/?name=${input}`
+const data = require("../../Data/restaurants.json");
+
 const getApiData = (req, res) => {
   const search = new URLSearchParams(req.url.split("?")[1]);
   const input = search.get("name");

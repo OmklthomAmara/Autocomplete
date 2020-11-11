@@ -9,7 +9,11 @@ module.exports = (req, response) => {
   let randomGifAPIUrl = `http://api.giphy.com/v1/gifs/random?api_key=${api_key}&tag=${input}`;
 
   request(randomGifAPIUrl, function (err, res, body) {
-    response.writeHead(200, { "content-type": "application/json" });
-    response.end(body);
+    if (err) {
+      throw new Error("database failed to connect");
+    } else {
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(body);
+    }
   });
 };

@@ -7,7 +7,11 @@ module.exports = (req, response) => {
   let Url = `http://localhost:4000/api/?name=${input}`;
 
   request(Url, function (err, res, body) {
-    response.writeHead(200, { "content-type": "application/json" });
-    response.end(body);
+    if (err) {
+      throw new Error("database failed to connect");
+    } else {
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(body);
+    }
   });
 };
