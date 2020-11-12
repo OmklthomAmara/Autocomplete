@@ -38,16 +38,20 @@ submit.addEventListener("click", () => {
   fetch(`http://localhost:3000/api/?name=${input.value}`)
     .then((res) => res.json())
     .then((res) => {
-      // giff.innerHTML = `<img src='${res.data.image_original_url}' width='300px' height='300px' />`;
+      giff.innerHTML = `<img src='${res.data.image_original_url}' width='300px' height='300px' />`;
     });
 
   //fetching data from server 2
   fetch(`http://localhost:3000/server2/?name=${input.value}`)
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
-      addSelectedData(res[0].type);
-      selectedData.innerHTML += `<img src='${res[0].image}'/>`;
-    });
+      if (res.error) {
+        selectedData.innerHTML = "<h1>something went wrong</h1>";
+      } else {
+        addSelectedData(res[0].type);
+        selectedData.innerHTML += `<img src='${res[0].image}'/>`;
+      }
+    })
+    .catch((err) => console.log(err));
   input.value = "";
 });
