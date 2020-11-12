@@ -1,8 +1,7 @@
 //  random gif
-
+require(dotenv).config({ path: __dirname + "/.dotenv" });
 const request = require("request");
-const api_key = "OiRmKWWUtNcSOtfRmlVDgYzuRKHSZPsz";
-
+const api_key = process.env.Api_key;
 module.exports = (req, response) => {
   const search = new URLSearchParams(req.url.split("?")[1]);
   const input = search.get("name");
